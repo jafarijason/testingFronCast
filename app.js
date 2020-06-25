@@ -1,4 +1,4 @@
-const { generateTex, createElement } = require("./util");
+const { checkAndGenerate, createElement } = require("./util");
 
 const initApp = () => {
     const newProductBtn = document.querySelector("#add-product");
@@ -13,7 +13,10 @@ const addProduct = () => {
     const titleValue = productTitle.value;
     const priceValue = productPrice.value;
 
-    const output = generateTex(titleValue, priceValue);
+    const output = checkAndGenerate(titleValue, priceValue);
+    if (!output) {
+        return
+    }
 
     const productEl = createElement('li', output, 'product-list')
     products.appendChild(productEl)
