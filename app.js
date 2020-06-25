@@ -1,4 +1,22 @@
-import { Util } from './util'
+const { generateTex, createElement } = require("./util");
 
+const initApp = () => {
+    const newProductBtn = document.querySelector("#add-product");
+    newProductBtn.addEventListener("click", addProduct);
+};
 
-console.log(Util);
+const addProduct = () => {
+    const productTitle = document.querySelector("#title");
+    const productPrice = document.querySelector("#price");
+
+    const products = document.querySelector(".products");
+    const titleValue = productTitle.value;
+    const priceValue = productPrice.value;
+
+    const output = generateTex(titleValue, priceValue);
+
+    const productEl = createElement('li', output, 'product-list')
+    products.appendChild(productEl)
+};
+
+initApp()
