@@ -3,7 +3,7 @@ const puppeteer = require("puppeteer");
 const { generateText, checkAndGenerate } = require("./util");
 
 test("Output title and price", () => {
-    const text = generateText("Book",  29);
+    const text = generateText("Book", 29);
     expect(text).toBe("Book 29");
 });
 
